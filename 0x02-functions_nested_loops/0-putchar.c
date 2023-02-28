@@ -1,20 +1,24 @@
 #include "main.h"
-	/**
-	 * main - print _putchar
-	 * is written by mbah
-	 * Return: 0
-	 */
-	int main(void)
+/**
+ * main - start the program
+ * Description: print _putchar
+ * Return: 0
+*/
+int main(void)
+{
+	int length, i;
+
+	char chars[] = {'_', 'p', 'u', 't', 'c', 'h', 'a', 'r'};
+
+	length = sizeof(chars) / sizeof(char);
+
+	for (i = 0; i < length; i++)
 	{
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
-	_putchar('\n');
-	return (0);
+		_putchar(chars[i] + 0);
 	}
+
+	_putchar(10);
+
+	return (0);
+}
 

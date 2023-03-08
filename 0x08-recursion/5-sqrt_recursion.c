@@ -1,35 +1,32 @@
-#include "main.h"
+/**
+ * _sqrt_helper - recursive helper function for _sqrt_recursion
+ * @n: the number to compute the square root of
+ * @guess: guessing number to guess the the square root
+ *
+ * Return: prefect square root
+ */
 
-int actual_sqrt_recursion(int n, int i);
+int _sqrt_helper(int n, int guess)
+{
+
+	if (n < 0 || guess * guess > n)
+		return (-1);
+
+	if (guess * guess == n)
+		return (guess);
+
+
+	return (_sqrt_helper(n, guess + 1));
+}
 
 /**
- * _sqrt_recursion - returns the natural square root of a number
- * @n: number to calculate the square root of
+ * _sqrt_recursion - computes the natural square root of a number
+ * @n: the number to compute the square root of
  *
- * Return: the resulting square root
+ * Return: the square root of n if it is a perfect square, otherwise -1
  */
 int _sqrt_recursion(int n)
 {
-	if (n < 0)
-		return (-1);
-	return (actual_sqrt_recursion(n, 0));
+	return (_sqrt_helper(n, 0));
 }
-
-/**
- * actual_sqrt_recursion - recurses to find the natural
- * square root of a number
- * @n: number to calculate the sqaure root of
- * @i: iterator
- *
- * Return: the resulting square root
- */
-int actual_sqrt_recursion(int n, int i)
-{
-	if (i * i > n)
-		return (-1);
-	if (i * i == n)
-		return (i);
-	return (actual_sqrt_recursion(n, i + 1));
-}
- 
 

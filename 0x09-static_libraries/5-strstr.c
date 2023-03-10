@@ -1,30 +1,32 @@
-#include "main.h"
+
 /**
- * _strstr - Entry point
- * @haystack: input
- * @needle: input
- * Return: Always 0 (Success)
- */
+ * _strstr - finds needle in haystack
+ * @needle: string
+ * @haystack: string
+ * Return: pointer to the beggining of the located substing or NULL
+*/
+
 char *_strstr(char *haystack, char *needle)
 {
-	for (; *haystack != '\0'; haystack++)
+	char *bhaystack;
+	char *pneedle;
+
+	while (*haystack != '\0')
 	{
-		char *l = haystack;
-		char *p = needle;
+		bhaystack = haystack;
+		pneedle = needle;
 
-
-		while (*l == *p && *p != '\0')
+		while (*haystack != '\0'
+			&& *pneedle != '\0'
+			&& *haystack == *pneedle)
 		{
-			l++;
-			p++;
+			haystack++;
+			pneedle++;
 		}
-
-
-		if (*p == '\0')
-			return (haystack);
+		if (!*pneedle)
+			return (bhaystack);
+		haystack = bhaystack + 1;
 	}
-
-
 	return (0);
 }
- 
+
